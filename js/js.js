@@ -74,6 +74,7 @@ app.controller("ctrl", function($scope, UserService) {
 
     };
 
+
 $scope.loadPage();
 
 });//ctrl
