@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Silesiaprojekt</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Own styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="app" ng-controller="ctrl">
+    <div class="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Where your money goes</h1>
+                <p>Payments made by Silesiaprojekt</p>
+                    <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <input type="text" id="suplier" placeholder="search supliers" class="form-control">
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" id="rate-val">
+                    <option>Select pound rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                </select>
+            </div>
+            <div class="col-lg-1">
+                <button class="btn btn-default" type="submit" ng-click="reset()">Reset</button>
+            </div>
+            <div class="col-lg-1">
+                <button class="btn btn-default btn-primary" type="submit" ng-click="action()">Search</button>
+            </div>
+        </div>
+            <br>
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Suplier</td>
+                        <td>Pound rating</td>
+                        <td>Reference</td>
+                        <td>Value</td>
+                    </tr>
+                    <tr ng-repeat="i in main">
+                        <td>{{i.payment_supplier}}</td>
+                        <td ng-click="getDetails()">
+                            <img ng-src='img/{{i.payment_cost_rating}}.png' height="26" width="137"></td>
+                        <td ng-click="getDetails()">{{i.payment_ref}}</td>
+                        <td ng-click="getDetails()">{{i.payment_amount | currency:"£ "}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li><a href="#" ng-click="prev()" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li ng-repeat="n in totalPages | limitTo:users.pagination.current:0"><a href="#">{{n+1}}</a></li><li>
+                        <li><a href="#"><h5>{{users.pagination.current}}</h5></a></li><li>
+                        <li ng-repeat="n in totalPages | limitTo:users.pagination.current:5"><a href="#">{{n+1}}</a></li><li>
+                        <li><a href="#" ng-click="next()" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="js/js.js"></script>
+</body>
+</html>

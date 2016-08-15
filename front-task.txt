@@ -1,0 +1,31 @@
+﻿1. Na podstawie plików graficznych Listing.psd i Listing.png przygotuj projekt HTML5 z wykorzystaniem "Responsive Web Design". Strona powinna wyświetlać się poprawnie we wszystkich najpopularniejszych przeglądarkach - dopuszczamy skorzystanie z "graceful degradation", np. brak zaokrągleń na IE6.
+Użyty font 'Source Sans Pro' jest dostępny w sieci.
+
+
+
+2. Połącz wykonany projekt z API dostępnym pod adresem:
+    http://test-api.kuria.tshdev.io/
+
+API wyświetla listę płatności z możliwością stronicowania oraz filtrowania wg ciągu znaków i oceny (pound rating);
+Opcjonalne parametry API:
+ - page: numer strony
+ - query: wyszukiwany ciąg znaków
+ - rating: filtrowanie wyników wg oceny (1..5)
+
+Parametry są opcjonalne i można je mieszać, np:
+ - http://test-api.kuria.tshdev.io/ - strona główna wyników
+ - http://test-api.kuria.tshdev.io/?query=audit - wyszukiwanie wyników z nazwą 'audit'
+ - http://test-api.kuria.tshdev.io/?rating=3&page=2 - druga strona wyników z oceną co najmniej 3 punktów
+
+
+
+
+
+
+
+
+3. Po kliknięciu w wyświetlony wiersz powinien pojawić sie popup ze szczegółowymi informacjami na temat wpisu. Nie wykonaliśmy projektu graficznego modalnego okna, pozostawiamy to Tobie.
+
+Chcielibyśmy, abyś do wykonania zadania użył jednego z popularnych frameworków JS (preferujemy AngularJS) lub ostatecznie samej biblioteki jQuery. Dodatkowe biblioteki pozostawiamy do wyboru.
+
+Jeśli znasz Gita lub inny system kontroli wersji - podziel się projektem właśnie w tej formie i udostępnij go na github.com lub bitbucket.org.
